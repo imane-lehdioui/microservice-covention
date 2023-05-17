@@ -1,89 +1,180 @@
 package com.cm.beans;
 
+import com.cm.entity.SuiveeExec;
+
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 public class ConventionBean {
 
-	private Date dateEffet;
-	private Date dateFin;
-	private long idAssociation;
-	private String objet;
-	private Date dateSignature;
-	private long duree;
-	private Date creationDate;
-	private Date updateDate;
-	private String createurUser;
+	private long id;
+	private String numSubvention;//رقم الإتفاقية
+	private String nomAssociation;//اسم الجمعية
+	private Date anneeSingConvention;//  تاريخ توقيع الإتفاقية
+	private Date anneeAcquisition;// تاريخ المصادقة
+	private String objetConvention;//موضوع الإتفاقية
+	private String champActivite;
+	private String natureActivite;
+	private String cible;
+	private String activite_de_rayonnement;
+	private String local;
+	private Long duree;//مدة الإتفاقية
+	private Long nombreRenouvelle;// عدد مرات التجديد
+	private String natureSubvention; //نوع الدعم
+	private double montantDemande;//مبلغ الدعم
+	private List<SuiveeExec> suiveeExec; //تتبع إنجاز النشاط
 
-	public Date getCreationDate() {
-		return creationDate;
+	public ConventionBean(long id, String numSubvention, String nomAssociation, Date anneeSingConvention, Date anneeAcquisition, String objetConvention, String champActivite, String natureActivite, String cible, String activite_de_rayonnement, String local, Long duree, Long nombreRenouvelle, String natureSubvention, double montantDemande, List<SuiveeExec> suiveeExec) {
+		this.id = id;
+		this.numSubvention = numSubvention;
+		this.nomAssociation = nomAssociation;
+		this.anneeSingConvention = anneeSingConvention;
+		this.anneeAcquisition = anneeAcquisition;
+		this.objetConvention = objetConvention;
+		this.champActivite = champActivite;
+		this.natureActivite = natureActivite;
+		this.cible = cible;
+		this.activite_de_rayonnement = activite_de_rayonnement;
+		this.local = local;
+		this.duree = duree;
+		this.nombreRenouvelle = nombreRenouvelle;
+		this.natureSubvention = natureSubvention;
+		this.montantDemande = montantDemande;
+		this.suiveeExec = suiveeExec;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public ConventionBean() {
+
 	}
 
-	public Date getUpdateDate() {
-		return updateDate;
+	public long getId() {
+		return id;
 	}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getCreateurUser() {
-		return createurUser;
+	public String getNumSubvention() {
+		return numSubvention;
 	}
 
-	public void setCreateurUser(String createurUser) {
-		this.createurUser = createurUser;
+	public void setNumSubvention(String numSubvention) {
+		this.numSubvention = numSubvention;
 	}
 
-	public long getDuree() {
+	public String getNomAssociation() {
+		return nomAssociation;
+	}
+
+	public void setNomAssociation(String nomAssociation) {
+		this.nomAssociation = nomAssociation;
+	}
+
+	public Date getAnneeSingConvention() {
+		return anneeSingConvention;
+	}
+
+	public void setAnneeSingConvention(Date anneeSingConvention) {
+		this.anneeSingConvention = anneeSingConvention;
+	}
+
+	public Date getAnneeAcquisition() {
+		return anneeAcquisition;
+	}
+
+	public void setAnneeAcquisition(Date anneeAcquisition) {
+		this.anneeAcquisition = anneeAcquisition;
+	}
+
+	public String getObjetConvention() {
+		return objetConvention;
+	}
+
+	public void setObjetConvention(String objetConvention) {
+		this.objetConvention = objetConvention;
+	}
+
+	public String getChampActivite() {
+		return champActivite;
+	}
+
+	public void setChampActivite(String champActivite) {
+		this.champActivite = champActivite;
+	}
+
+	public String getNatureActivite() {
+		return natureActivite;
+	}
+
+	public void setNatureActivite(String natureActivite) {
+		this.natureActivite = natureActivite;
+	}
+
+	public String getCible() {
+		return cible;
+	}
+
+	public void setCible(String cible) {
+		this.cible = cible;
+	}
+
+	public String getActivite_de_rayonnement() {
+		return activite_de_rayonnement;
+	}
+
+	public void setActivite_de_rayonnement(String activite_de_rayonnement) {
+		this.activite_de_rayonnement = activite_de_rayonnement;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public Long getDuree() {
 		return duree;
 	}
 
-	public void setDuree(long duree) {
+	public void setDuree(Long duree) {
 		this.duree = duree;
 	}
 
-	public String getObjet() {
-		return objet;
+
+
+	public Long getNombreRenouvelle() {
+		return nombreRenouvelle;
 	}
 
-	public void setObjet(String objet) {
-		this.objet = objet;
+	public void setNombreRenouvelle(Long nombreRenouvelle) {
+		this.nombreRenouvelle = nombreRenouvelle;
 	}
 
-	public Date getDateSignature() {
-		return dateSignature;
+	public String getNatureSubvention() {
+		return natureSubvention;
 	}
 
-	public void setDateSignature(Date dateSignature) {
-		this.dateSignature = dateSignature;
+	public void setNatureSubvention(String natureSubvention) {
+		this.natureSubvention = natureSubvention;
 	}
 
-	public Date getDateEffet() {
-		return dateEffet;
+	public double getMontantDemande() {
+		return montantDemande;
 	}
 
-	public void setDateEffet(Date dateEffet) {
-		this.dateEffet = dateEffet;
+	public void setMontantDemande(double montantDemande) {
+		this.montantDemande = montantDemande;
 	}
 
-	public Date getDateFin() {
-		return dateFin;
+	public List<SuiveeExec> getSuiveeExec() {
+		return suiveeExec;
 	}
 
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
+	public void setSuiveeExec(List<SuiveeExec> suiveeExec) {
+		this.suiveeExec = suiveeExec;
 	}
-
-	public long getIdAssociation() {
-		return idAssociation;
-	}
-
-	public void setIdAssociation(long idAssociation) {
-		this.idAssociation = idAssociation;
-	}
-
 }
