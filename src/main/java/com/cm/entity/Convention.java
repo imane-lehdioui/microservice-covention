@@ -30,7 +30,7 @@ public class Convention {
 	private double montantDemande;//مبلغ الدعم
 
 	@ElementCollection(targetClass = SuiveeExec.class)
-	@CollectionTable(name="convention_suiveeExec", joinColumns = {@JoinColumn(name="convention_id")})
+	@CollectionTable(name="convention_suiveeExecu", joinColumns = {@JoinColumn(name="convention_id")})
 	@Enumerated(EnumType.STRING)
 	@Column(name="SuiveeExec")
 	private List<SuiveeExec> suiveeExec; //تتبع إنجاز النشاط

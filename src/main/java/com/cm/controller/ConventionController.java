@@ -61,25 +61,32 @@ public class ConventionController {
 		return idSub;
 	}
 
-//	@PutMapping(value = "/convention/edit/{id}")
-//	public Convention updateConvention(@PathVariable(value = "id") Long convId,
-//			@Valid @RequestBody Convention details) {
-//		Convention conv = conventionRepository.findById(convId)
-//				.orElseThrow(() -> new ResourceNotFoundException("Convention", "convId", convId));
-//		//MAJ 08.08.20
-//		conv.setDuree(details.getDuree());
-//		// Oldest
-//		conv.setDateEffet(details.getDateEffet());
-//		conv.setDateFin(details.getDateFin());
-//		conv.setDateSignature(details.getDateSignature());
-//		conv.setIdAssociation(details.getIdAssociation());
-//		conv.setObjet(details.getObjet());
-//		//conv.setStatutConvention(details.getStatutConvention());
-//		conv.setTypeConvention(details.getTypeConvention());
-//		java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
-//		conv.setUpdateDate(sqlDate);
-//		return conventionRepository.save(conv);
-//	}
+	@PutMapping(value = "/convention/edit/{id}")
+	public Convention updateConvention(@PathVariable(value = "id") Long convId,
+			@Valid @RequestBody Convention details) {
+		Convention conv = conventionRepository.findById(convId)
+				.orElseThrow(() -> new ResourceNotFoundException("Convention", "convId", convId));
+		//MAJ 08.08.20
+		conv.setDuree(details.getDuree());
+	// Oldest
+	conv.setNumSubvention(details.getNumSubvention());
+		conv.setNomAssociation(details.getNomAssociation());
+	conv.setAnneeSingConvention(details.getAnneeSingConvention());
+		conv.setAnneeAcquisition(details.getAnneeAcquisition());
+		conv.setObjetConvention(details.getObjetConvention());
+		conv.setChampActivite(details.getChampActivite());
+		conv.setNatureActivite(details.getNatureActivite());
+		conv.setActivite_de_rayonnement(details.getActivite_de_rayonnement());
+		conv.setCible(details.getCible());
+		conv.setLocal(details.getLocal());
+		conv.setDuree(details.getDuree());
+		conv.setNombreRenouvelle(details.getNombreRenouvelle());
+		conv.setNatureSubvention(details.getNatureSubvention());
+		conv.setMontantDemande(details.getMontantDemande());
+		conv.setSuiveeExec(details.getSuiveeExec());
+
+	return conventionRepository.save(conv);
+	}
 
 	@DeleteMapping(value = "/convention/delete/{id}")
 	public ResponseEntity<?> deleteConvention(@PathVariable(value = "id") Long convId) {
