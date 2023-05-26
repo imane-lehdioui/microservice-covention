@@ -20,6 +20,7 @@ public class ConventionController {
 	
 	static long idConvention;
 	static long idSub;
+	static long idAss;
 
 	@GetMapping(value = "/convention/index")
 	public List<Convention> getAllConvention(@RequestParam(required = false) String title) {
@@ -33,33 +34,45 @@ public class ConventionController {
 				.orElseThrow(() -> new ResourceNotFoundException("Convention", "convId", convId));
 	}
 
+	@PostMapping("/convention/new")
+	public long createConvention(@Valid @RequestBody Convention ass) {
 
-	@PostMapping(value = "/convention/new")
-	public long createConvention(@Valid @RequestBody Convention sv) {
-		Convention sub = new Convention();
+		Convention assoc = conventionRepository.save(ass);
+		java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
 
-		sub.setId(sv.getId());
-		sub.setNumSubvention(sv.getNumSubvention());
-		sub.setNomAssociation(sv.getNomAssociation());
-		sub.setAnneeSingConvention(sv.getAnneeSingConvention());
-		sub.setAnneeAcquisition(sv.getAnneeAcquisition());
-		sub.setObjetConvention(sv.getObjetConvention());
-
-		sub.setChampActivite(sv.getChampActivite());
-		sub.setNatureActivite(sv.getNatureActivite());
-		sub.setActivite_de_rayonnement(sv.getActivite_de_rayonnement());
-		sub.setCible(sv.getCible());
-		sub.setLocal(sv.getLocal());
-		sub.setDuree(sv.getDuree());
-		sub.setNombreRenouvelle(sv.getNombreRenouvelle());
-		sub.setNatureSubvention(sv.getNatureSubvention());
-		sub.setMontantDemande(sv.getMontantDemande());
-		sub.setSuiveeExec(sv.getSuiveeExec());
-
-		sub = conventionRepository.save(sub);
-		idSub = sub.getId();
-		return idSub;
+		conventionRepository.save(assoc);
+		idAss = assoc.getId();
+		return idAss;
 	}
+
+
+//	@PostMapping(value = "/convention/new")
+//	public long createConvention(@Valid @RequestBody Convention sv) {
+//		Convention sub = new Convention();
+//
+//		sub.setId(sv.getId());
+//		sub.setNumSubvention(sv.getNumSubvention());
+//		sub.setNomAssociation(sv.getNomAssociation());
+//		sub.setAnneeSingConvention(sv.getAnneeSingConvention());
+//		sub.setAnneeAcquisition(sv.getAnneeAcquisition());
+//		sub.setArrondissement(sv.getArrondissement());
+//		sub.setObjetConvention(sv.getObjetConvention());
+//
+//		sub.setChampActivite(sv.getChampActivite());
+//		sub.setNatureActivite(sv.getNatureActivite());
+//		sub.setActivite_de_rayonnement(sv.getActivite_de_rayonnement());
+//		sub.setCible(sv.getCible());
+//		sub.setLocal(sv.getLocal());
+//		sub.setDuree(sv.getDuree());
+//		sub.setNombreRenouvelle(sv.getNombreRenouvelle());
+//		sub.setNatureSubvention(sv.getNatureSubvention());
+//		sub.setMontantDemande(sv.getMontantDemande());
+//		sub.setSuiveeExec(sv.getSuiveeExec());
+//
+//		sub = conventionRepository.save(sub);
+//		idSub = sub.getId();
+//		return idSub;
+//	}
 
 	@PutMapping(value = "/convention/edit/{id}")
 	public Convention updateConvention(@PathVariable(value = "id") Long convId,
@@ -71,7 +84,8 @@ public class ConventionController {
 	// Oldest
 	conv.setNumSubvention(details.getNumSubvention());
 		conv.setNomAssociation(details.getNomAssociation());
-	conv.setAnneeSingConvention(details.getAnneeSingConvention());
+		conv.setArrondissement(details.getArrondissement());
+	    conv.setAnneeSingConvention(details.getAnneeSingConvention());
 		conv.setAnneeAcquisition(details.getAnneeAcquisition());
 		conv.setObjetConvention(details.getObjetConvention());
 		conv.setChampActivite(details.getChampActivite());

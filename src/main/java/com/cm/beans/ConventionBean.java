@@ -24,8 +24,9 @@ public class ConventionBean {
 	private String natureSubvention; //نوع الدعم
 	private double montantDemande;//مبلغ الدعم
 	private List<SuiveeExec> suiveeExec; //تتبع إنجاز النشاط
+	private String arrondissement;
 
-	public ConventionBean(long id, String numSubvention, String nomAssociation, Date anneeSingConvention, Date anneeAcquisition, String objetConvention, String champActivite, String natureActivite, String cible, String activite_de_rayonnement, String local, Long duree, Long nombreRenouvelle, String natureSubvention, double montantDemande, List<SuiveeExec> suiveeExec) {
+	public ConventionBean(long id, String numSubvention, String nomAssociation, Date anneeSingConvention, Date anneeAcquisition, String objetConvention, String champActivite, String natureActivite, String cible, String activite_de_rayonnement, String local, Long duree, Long nombreRenouvelle, String natureSubvention, double montantDemande, List<SuiveeExec> suiveeExec, String arrondissement) {
 		this.id = id;
 		this.numSubvention = numSubvention;
 		this.nomAssociation = nomAssociation;
@@ -42,10 +43,19 @@ public class ConventionBean {
 		this.natureSubvention = natureSubvention;
 		this.montantDemande = montantDemande;
 		this.suiveeExec = suiveeExec;
+		this.arrondissement = arrondissement;
 	}
 
 	public ConventionBean() {
 
+	}
+
+	public String getArrondissement() {
+		return arrondissement;
+	}
+
+	public void setArrondissement(String arrondissement) {
+		this.arrondissement = arrondissement;
 	}
 
 	public long getId() {

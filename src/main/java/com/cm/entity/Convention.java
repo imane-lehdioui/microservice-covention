@@ -34,12 +34,13 @@ public class Convention {
 	@Enumerated(EnumType.STRING)
 	@Column(name="SuiveeExec")
 	private List<SuiveeExec> suiveeExec; //تتبع إنجاز النشاط
+	private String arrondissement;
 
 	public Convention() {
 
 	}
 
-	public Convention(long id, String numSubvention, String nomAssociation, Date anneeSingConvention, Date anneeAcquisition, String objetConvention, String champActivite, String natureActivite, String cible, String activite_de_rayonnement, String local, Long duree, Long nombreRenouvelle, String natureSubvention, double montantDemande, List<SuiveeExec> suiveeExec) {
+	public Convention(long id, String numSubvention, String nomAssociation, Date anneeSingConvention, Date anneeAcquisition, String objetConvention, String champActivite, String natureActivite, String cible, String activite_de_rayonnement, String local, Long duree, Long nombreRenouvelle, String natureSubvention, double montantDemande, List<SuiveeExec> suiveeExec, String arrondissement) {
 		this.id = id;
 		this.numSubvention = numSubvention;
 		this.nomAssociation = nomAssociation;
@@ -56,6 +57,7 @@ public class Convention {
 		this.natureSubvention = natureSubvention;
 		this.montantDemande = montantDemande;
 		this.suiveeExec = suiveeExec;
+		this.arrondissement = arrondissement;
 	}
 
 	public long getId() {
@@ -64,6 +66,14 @@ public class Convention {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getArrondissement() {
+		return arrondissement;
+	}
+
+	public void setArrondissement(String arrondissement) {
+		this.arrondissement = arrondissement;
 	}
 
 	public String getNumSubvention() {
